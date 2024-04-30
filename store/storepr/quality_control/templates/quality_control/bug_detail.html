@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h1>{{ bug.title }}</h1>
+    <p>{{ bug.description }}</p>
+    <p>
+        проект:
+        <a href="{% url 'tasks:project_detail' bug.project.id %}">{{ bug.project.name }}</a>
+    </p>
+{% endblock %}

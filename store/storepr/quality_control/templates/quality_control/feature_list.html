@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h1>Список запросов на улучшение</h1>
+    <ul>
+        {% for feature in feature_list %}
+            <li>
+                <p>
+                    <a href="{% url 'quality_control:feature_detail' feature.id %}">запрос {{ feature.title }}</a>
+                    в проекте
+                    <a href="{% url 'tasks:project_detail' feature.project.id %}">{{ feature.project.name }}</a>
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
