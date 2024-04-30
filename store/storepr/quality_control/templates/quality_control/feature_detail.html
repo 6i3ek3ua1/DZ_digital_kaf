@@ -3,8 +3,11 @@
 {% block content %}
     <h1>{{ feature.title }}</h1>
     <p>{{ feature.description }}</p>
+    <p><a href="{% url 'quality_control:update_feature' feature.id %}">Изменить запрос на улучшенение</a></p>
+
+    <p><a href="{% url 'quality_control:delete_feature' feature.id %}" onclick="return confirm('Вы уверены, что хотите удалить этот запрос?');">Удалить запрос</a></p>
     <p>
-        проект: 
+        проект:
         <a href="{% url 'tasks:project_detail' feature.project.id %}">{{ feature.project.name }}</a>
     </p>
 {% endblock %}
